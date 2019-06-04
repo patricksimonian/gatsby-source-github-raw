@@ -28,7 +28,7 @@ export const getManifestInFileSystem = (getNodes, manifestSourceType) => {
     // filter out internal so that this manifest is exactly the same in structure as a json object
     // being passed in as config
     // eslint-disable-next-line no-unused-vars
-    return manifest.map(({ internal, ...rest }) => rest);
+    return manifest.map(({ internal, id, parent, children, ...rest }) => rest);
   }
 
   throw new Error(`${NOMENCLATURE.manifest} not found`);
