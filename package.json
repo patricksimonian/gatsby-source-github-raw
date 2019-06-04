@@ -16,11 +16,11 @@
     "test:watch": "NODE_ENV=test jest __tests__ --watch --env=jsdom",
     "test:lint": "eslint --env node --ext .js src",
     "prettier": "prettier --write '{./,__{tests,mocks}__}/**/*.+(js|jsx)'",
-    "prepare": "npm run test && npm run test:lint -- --fix && npm run build && npm run version:beta",
+    "prepare": "npm run test && npm run test:lint -- --fix && npm run build && npm run version:prerelease",
     "version:major": "npm version major --tag stable",
     "version:minor": "npm version minor --tag stable",
     "version:patch": "npm version patch",
-    "version:beta": "npm version patch --tag beta"
+    "version:prerelease": "npm version prerelease --tag beta"
   },
   "author": "Patrick Simonian",
   "license": "Apache-2.0",
