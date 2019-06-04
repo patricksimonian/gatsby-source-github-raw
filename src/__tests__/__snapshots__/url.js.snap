@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`extractInformationFromGithubUrl returns owner, repo, filePath and ref 1`] = `
+Object {
+  "filepath": undefined,
+  "owner": "foo",
+  "ref": "master",
+  "repo": "bar",
+}
+`;

@@ -35,3 +35,15 @@ export const extractInformationFromGithubUrl = url => {
     ref,
   };
 };
+
+/**
+ * creates the GITHUB v3 contents api endpoint for a file
+ * @param {String} repo
+ * @param {String} owner
+ * @param {String} path
+ * @param {String} branch
+ */
+export const createFetchFileRoute = (repo, owner, path, branch = '') => {
+  const ref = branch === '' ? '' : `?ref=${branch}`;
+  return `https://api.github.com/repos/${owner}/${repo}/contents/${path}${ref}`;
+};
