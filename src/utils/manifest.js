@@ -21,7 +21,7 @@ import { NOMENCLATURE, JSON_SCHEMA } from '../constants';
  * @param {Function} getNodes gatsby builtin function to return all nodes
  * @param {String} manifestSourceType the internal type refering to registry yaml source
  */
-export const getManifest = (getNodes, manifestSourceType) => {
+export const getManifestInFileSystem = (getNodes, manifestSourceType) => {
   const manifest = getNodes().filter(node => node.internal.type === manifestSourceType);
   if (manifest.length > 0) {
     return manifest;

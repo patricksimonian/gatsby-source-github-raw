@@ -15,10 +15,6 @@ limitations under the License.
 
 Created by Patrick Simonian
 */
-// expected json schema for the manifest of files to fetch
-export const JSON_SCHEMA = {
-  url: {
-    type: 'String',
-    required: true,
-  },
-};
+export { getManifestInFileSystem, validateManifestItem } from './manifest';
+
+export { validateAgainstSchema } from './validate';
