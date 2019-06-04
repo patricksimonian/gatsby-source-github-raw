@@ -1,1 +1,3 @@
 **/*.js.snap
+dist
+node_modules
