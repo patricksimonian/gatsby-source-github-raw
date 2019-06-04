@@ -15,6 +15,8 @@ limitations under the License.
 
 Created by Patrick Simonian
 */
+import validUrl from 'valid-url';
+import Url from 'url';
 import { isFunction, isString } from 'lodash';
 import { NOMENCLATURE } from '../constants';
 export const getLodashValidateFnByMapping = mapping => {
@@ -77,4 +79,12 @@ export const validateAgainstSchema = (obj, schema) => {
   error.isValid = error.messages.length === 0;
 
   return error;
+};
+
+export const isAGithubUrl = url => {
+  if (validUrl.isWebUri(url)) {
+    const parsed = new Url.URL(url);
+    return parsed.host === 'github.com';
+  }
+  return false;
 };

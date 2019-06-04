@@ -25,7 +25,10 @@ import { NOMENCLATURE, JSON_SCHEMA } from '../constants';
 export const getManifestInFileSystem = (getNodes, manifestSourceType) => {
   const manifest = getNodes().filter(node => node.internal.type === manifestSourceType);
   if (manifest.length > 0) {
-    return manifest;
+    // filter out internal so that this manifest is exactly the same in structure as a json object
+    // being passed in as config
+    // eslint-disable-next-line no-unused-vars
+    return manifest.map(({ internal, ...rest }) => rest);
   }
 
   throw new Error(`${NOMENCLATURE.manifest} not found`);
@@ -33,7 +36,18 @@ export const getManifestInFileSystem = (getNodes, manifestSourceType) => {
 
 /**
  * @param {Object} manifestItem the registry item found within the registry file sources[index]
- * @returns {Boolean} true if registry item is valid
+ * @returns {Object} {isValid: {Boolean}, messages: []{String} }
  */
 export const validateManifestItem = manifestItem =>
   validateManifestItemAgainstSchema(manifestItem, JSON_SCHEMA);
+
+/**
+ * filters out unvalidated manifest items
+ * @param {Array} manifest
+ * @returns {Array} a new array of filtered manifests
+ */
+export const validateAndFilterManifest = manifest =>
+  manifest.filter(item => {
+    const validated = validateManifestItem(item);
+    return validated.isValid;
+  });

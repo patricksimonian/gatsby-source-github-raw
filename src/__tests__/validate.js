@@ -1,4 +1,5 @@
 import { validateAgainstSchema } from '../utils';
+import { isAGithubUrl } from '../utils/validate';
 
 describe('validateAgainstSchema', () => {
   let schema;
@@ -53,5 +54,13 @@ describe('validateAgainstSchema', () => {
     const result = validateAgainstSchema(object, schema);
     expect(result.isValid).toBe(false);
     expect(result.messages.length).toBe(1);
+  });
+});
+
+describe('Custom Validators', () => {
+  it('detects if something is a valid github URL', () => {
+    expect(isAGithubUrl('https://github.com')).toBe(true);
+    expect(isAGithubUrl('https://example.com')).toBe(false);
+    expect(isAGithubUrl('df')).toBe(false);
   });
 });
