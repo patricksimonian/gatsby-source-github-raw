@@ -11,7 +11,7 @@
   ],
   "main": "dist/index.js",
   "scripts": {
-    "build": "babel src --out-dir dist",
+    "build": "babel src --out-dir dist --ignore src/__tests__,src/__fixtures__",
     "test": "NODE_ENV=test jest __tests__ --env=node",
     "test:watch": "NODE_ENV=test jest __tests__ --watch --env=node",
     "test:lint": "eslint --env node --ext .js src",
