@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Manifest Utilities getManifestInFileSystem returns the manifest 1`] = `
+Array [
+  Object {
+    "id": "56bcf513-818b-5188-99e9-e194b32eaf1a",
+    "internal": Object {
+      "type": "foo",
+    },
+  },
+  Object {
+    "id": "62c295c4-7df2-556c-a8d0-0a49a3761ca1",
+    "internal": Object {
+      "type": "foo",
+    },
+  },
+  Object {
+    "id": "0597ed6f-b09f-5d0a-b9b1-16ac7d3a3ca4",
+    "internal": Object {
+      "type": "foo",
+    },
+  },
+]
+`;
