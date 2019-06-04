@@ -17,7 +17,7 @@ Created by Patrick Simonian
 */
 import validUrl from 'valid-url';
 import Url from 'url';
-import { isFunction, isString } from 'lodash';
+import { isFunction, isString, isArray, isPlainObject } from 'lodash';
 import { NOMENCLATURE } from '../constants';
 export const getLodashValidateFnByMapping = mapping => {
   switch (mapping) {
@@ -88,3 +88,11 @@ export const isAGithubUrl = url => {
   }
   return false;
 };
+
+/**
+ * validates source plugin options
+ * @param {String} token the github access token
+ * @param {String | Array} manifest the manifest config or the node internal.type that points to all the manifest files
+ */
+export const areOptionsOkay = (token, manifest) =>
+  isString(token) && (isString(manifest) || (isArray(manifest) && manifest.every(isPlainObject)));

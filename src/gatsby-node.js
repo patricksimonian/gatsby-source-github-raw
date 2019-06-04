@@ -21,4 +21,7 @@
 // SIPHON
 // The main content pull and creation system for devhub:)
 
-exports.sourceNodes = () => 'hello world';
+exports.sourceNodes = async (
+  { getNodes, actions, createNodeId },
+  { githubAccessToken, files },
+) => {};

@@ -1,5 +1,5 @@
 import { validateAgainstSchema } from '../utils';
-import { isAGithubUrl } from '../utils/validate';
+import { isAGithubUrl, areOptionsOkay } from '../utils/validate';
 
 describe('validateAgainstSchema', () => {
   let schema;
@@ -62,5 +62,25 @@ describe('Custom Validators', () => {
     expect(isAGithubUrl('https://github.com')).toBe(true);
     expect(isAGithubUrl('https://example.com')).toBe(false);
     expect(isAGithubUrl('df')).toBe(false);
+  });
+});
+
+describe('areOptionsOkay', () => {
+  it('returns if options are okay', () => {
+    const GOOD_TOKEN = 'foo';
+    const BAD_TOKEN = false;
+    const GOOD_MANIFEST_CONFIG = [{}, {}];
+    const BAD_MANIFEST_CONFIG_1 = [1, 2];
+    const BAD_MANIFEST_CONFIG_2 = null;
+    const GOOD_MANIFEST_REFERENCE = 'FooJson';
+
+    expect(areOptionsOkay(GOOD_TOKEN, GOOD_MANIFEST_CONFIG)).toBe(true);
+    expect(areOptionsOkay(GOOD_TOKEN, GOOD_MANIFEST_REFERENCE)).toBe(true);
+    expect(areOptionsOkay(BAD_TOKEN, GOOD_MANIFEST_REFERENCE)).toBe(false);
+    expect(areOptionsOkay(BAD_TOKEN, GOOD_MANIFEST_CONFIG)).toBe(false);
+    expect(areOptionsOkay(GOOD_TOKEN, BAD_MANIFEST_CONFIG_1)).toBe(false);
+    expect(areOptionsOkay(GOOD_TOKEN, BAD_MANIFEST_CONFIG_2)).toBe(false);
+    expect(areOptionsOkay(BAD_TOKEN, BAD_MANIFEST_CONFIG_1)).toBe(false);
+    expect(areOptionsOkay(BAD_TOKEN, BAD_MANIFEST_CONFIG_2)).toBe(false);
   });
 });
