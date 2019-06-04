@@ -1,0 +1,25 @@
+{
+  "transform": {
+    ".(js|jsx)": "babel-jest"
+  },
+  "modulePathIgnorePatterns": [
+    "<rootDir>/dist/"
+  ],
+  "testRegex": "(\\.(test|spec))\\.(jsx|js)$",
+  "testPathIgnorePatterns": [
+    "/node_modules/"
+  ],
+  "moduleFileExtensions": [
+    "js"
+  ],
+  "collectCoverage": true,
+  "collectCoverageFrom": [
+    "src/**/*.{js,jsx,mjs}"
+  ],
+  "coverageReporters": [
+    "lcov",
+    "text",
+    "html"
+  ],
+  "setupFiles": []
+}
