@@ -20,6 +20,5 @@
 
 // SIPHON
 // The main content pull and creation system for devhub:)
-const { sourceNodes } = require('./sourceNodes');
 
-exports.sourceNodes = sourceNodes;
+exports.sourceNodes = () => 'hello world';
