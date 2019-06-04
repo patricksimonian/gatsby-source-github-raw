@@ -13,3 +13,22 @@ Array [
   },
 ]
 `;
+
+exports[`Manifest Utilities validateAndFilterManifest filters out manifest items that are invalid 1`] = `
+Array [
+  Object {
+    "labels": Array [
+      "foo",
+      "bar",
+    ],
+    "personas": Array [
+      "Developer",
+      "Designer",
+    ],
+    "url": "https://github.com/foo/bar/blob/master/bar.md",
+  },
+  Object {
+    "url": "https://github.com/foo/bar/blob/master/baz.md",
+  },
+]
+`;

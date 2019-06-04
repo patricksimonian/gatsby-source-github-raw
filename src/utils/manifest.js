@@ -16,6 +16,7 @@ limitations under the License.
 Created by Patrick Simonian
 */
 import { NOMENCLATURE, JSON_SCHEMA } from '../constants';
+import { validateAgainstSchema } from './validate';
 /**
  * Filter out all nodes to get the ones specify for registry yaml file
  * @param {Function} getNodes gatsby builtin function to return all nodes
@@ -39,7 +40,7 @@ export const getManifestInFileSystem = (getNodes, manifestSourceType) => {
  * @returns {Object} {isValid: {Boolean}, messages: []{String} }
  */
 export const validateManifestItem = manifestItem =>
-  validateManifestItemAgainstSchema(manifestItem, JSON_SCHEMA);
+  validateAgainstSchema(manifestItem, JSON_SCHEMA);
 
 /**
  * filters out unvalidated manifest items
