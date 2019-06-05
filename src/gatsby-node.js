@@ -14,7 +14,8 @@
 //
 // Created by Patrick Simonian on 2019-06-04.
 //
-import { areOptionsOkay } from './utils';
+import isString from 'lodash/isString';
+import { areOptionsOkay, getManifestInFileSystem } from './utils';
 import { ERRORS } from './constants';
 
 export const SourceNodes = async (
@@ -23,5 +24,12 @@ export const SourceNodes = async (
 ) => {
   if (!areOptionsOkay(githubAccessToken, files)) {
     throw new Error(ERRORS.BAD_OPTIONS);
+  }
+
+  let manifest = [];
+
+  if (isString(files)) {
+    const manifestSourceType = files;
+    manifest = getManifestInFileSystem(getNodes, manifestSourceType);
   }
 };
