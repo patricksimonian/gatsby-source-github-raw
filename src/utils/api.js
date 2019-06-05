@@ -40,3 +40,12 @@ export const fetchFile = async (path, token) => {
   }
   return undefined;
 };
+
+/**
+ * returns array of fetch file promises
+ * @param {Array} files array of github api contents api uri strings
+ * @param {*} token github token
+ */
+export const fetchFiles = (files, token) => {
+  return files.map(f => fetchFile(f.path, token));
+};

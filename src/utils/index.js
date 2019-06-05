@@ -17,4 +17,4 @@ Created by Patrick Simonian
 */
 export { getManifestInFileSystem, validateManifestItem } from './manifest';
 
-export { validateAgainstSchema } from './validate';
+export { validateAgainstSchema, areOptionsOkay } from './validate';

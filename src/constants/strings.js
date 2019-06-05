@@ -19,3 +19,8 @@ Created by Patrick Simonian
 export const NOMENCLATURE = {
   manifest: 'Manifest',
 };
+
+export const ERRORS = {
+  BAD_OPTIONS: 'Options are misconfiguired, you require the properties githubAccessToken and files',
+};
+

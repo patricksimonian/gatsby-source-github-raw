@@ -14,8 +14,14 @@
 //
 // Created by Patrick Simonian on 2019-06-04.
 //
+import { areOptionsOkay } from './utils';
+import { ERRORS } from './constants';
 
-exports.sourceNodes = async (
+export const SourceNodes = async (
   { getNodes, actions, createNodeId },
   { githubAccessToken, files },
-) => {};
+) => {
+  if (!areOptionsOkay(githubAccessToken, files)) {
+    throw new Error(ERRORS.BAD_OPTIONS);
+  }
+};

@@ -1,2 +1,2 @@
-export { NOMENCLATURE } from './strings';
+export { NOMENCLATURE, ERRORS } from './strings';
 export { JSON_SCHEMA } from './schema';
