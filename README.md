@@ -30,7 +30,7 @@ A simplified way of leveraging the `Github Contents Api` as Gatsby graphql nodes
 
 ## Files Option
 
-There are three ways to pass in files
+There are a few ways to pass in files
 
 1. as a simple array of strings `['https://github.com/foo/bar/blob/master/something.md', 'https://github.com/foo/bar/blob/master/something2.md']`
 2. as an array of objects, this allows you to bind extra properties to each node
@@ -87,7 +87,16 @@ The implied `nodeType` that is created from the directory can be passed in as th
   }
 }
 ```
-
+4. Files as a function
+```js
+{
+  resolve: 'gatsby-source-github-raw',
+  options: {
+    githubAccessToken: '...',
+    files: () => ['fooJson']
+  }
+}
+```
 ## Exceptions to applying bound properties
 
 Because manifests can be passed in as plain js objects as well as loaded through the use of 
