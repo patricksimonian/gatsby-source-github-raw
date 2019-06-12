@@ -9,9 +9,9 @@
       "email": "patrick.simonian@gov.bc.ca"
     }
   ],
-  "main": "dist/index.js",
+  "main": "index.js",
   "scripts": {
-    "build": "babel src --out-dir dist --ignore src/__tests__,src/__fixtures__",
+    "build": "babel src --out-dir . --ignore src/__tests__,src/__fixtures__",
     "test": "NODE_ENV=test jest __tests__ --env=node",
     "test:watch": "NODE_ENV=test jest __tests__ --watch --env=node",
     "test:lint": "eslint --env node --ext .js src",

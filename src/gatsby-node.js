@@ -22,7 +22,7 @@ import { extractInformationFromGithubUrl, createFetchFileRoute } from './utils/u
 import { fetchFile } from './utils/api';
 import { createNodeObject } from './utils/createNode';
 
-export const SourceNodes = async (
+export const sourceNodes = async (
   { getNodes, actions, createNodeId },
   { githubAccessToken, files },
 ) => {

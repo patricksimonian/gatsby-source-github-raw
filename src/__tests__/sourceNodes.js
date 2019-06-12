@@ -1,4 +1,4 @@
-import { SourceNodes } from '../gatsby-node';
+import { SourceNodes } from '../gatsby-node.js';
 import { ERRORS } from '../constants';
 import {
   GRAPHQL_NODES_WITH_MANIFEST_JSON,
