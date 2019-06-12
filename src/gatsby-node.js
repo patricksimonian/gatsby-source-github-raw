@@ -64,3 +64,5 @@ export const SourceNodes = async (
     return createNode(createNodeObject(createNodeId, file, metadata));
   });
 };
+
+exports.sourceNodes = SourceNodes;

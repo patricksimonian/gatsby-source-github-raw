@@ -25,4 +25,3 @@ export const ERRORS = {
 };
 
 export const NODE_TYPE = 'GithubRaw';
-
