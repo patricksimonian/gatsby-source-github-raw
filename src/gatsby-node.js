@@ -61,6 +61,6 @@ export const SourceNodes = async (
 
     // get meta data from urlMap based on this url
     const metadata = urlMap.get(html_url);
-    return createNodeObject(createNodeId, file, metadata);
+    return createNode(createNodeObject(createNodeId, file, metadata));
   });
 };
