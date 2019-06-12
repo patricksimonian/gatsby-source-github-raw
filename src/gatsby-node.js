@@ -22,7 +22,7 @@ import { extractInformationFromGithubUrl, createFetchFileRoute } from './utils/u
 import { fetchFile } from './utils/api';
 import { createNodeObject } from './utils/createNode';
 
-export const SourceNodes = async (
+export const sourceNodes = async (
   { getNodes, actions, createNodeId },
   { githubAccessToken, files },
 ) => {
@@ -36,7 +36,10 @@ export const SourceNodes = async (
     const manifestSourceType = files;
     manifest = getManifestInFileSystem(getNodes, manifestSourceType);
   } else {
-    manifest = files;
+    manifest = files.map(f => {
+      if (isString(f)) return { url: f };
+      return f;
+    });
   }
   // validate files and filter
   const filteredManifest = validateAndFilterManifest(manifest);
@@ -53,8 +56,8 @@ export const SourceNodes = async (
     .map(({ repo, owner, filepath, ref }) => createFetchFileRoute(repo, owner, filepath, ref));
 
   const rawFiles = await Promise.all(fetchFileList.map(path => fetchFile(path, githubAccessToken)));
-
-  const decodedFiles = rawFiles.map(decodeFileContent);
+  // filter out files that didn't fetch and then decode b64 content
+  const decodedFiles = rawFiles.filter(f => f).map(decodeFileContent);
 
   return decodedFiles.map(file => {
     const { html_url } = file;
@@ -64,5 +67,3 @@ export const SourceNodes = async (
     return createNode(createNodeObject(createNodeId, file, metadata));
   });
 };
-
-exports.sourceNodes = SourceNodes;

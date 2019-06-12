@@ -1,4 +1,4 @@
-import { SourceNodes } from '../gatsby-node';
+import { sourceNodes } from '../gatsby-node.js';
 import { ERRORS } from '../constants';
 import {
   GRAPHQL_NODES_WITH_MANIFEST_JSON,
@@ -15,7 +15,7 @@ jest.mock('../utils/api');
 
 fetchFile.mockReturnValue(Promise.resolve(RAW_FILE));
 
-describe('SourceNodes Integration Tests', () => {
+describe('sourceNodes Integration Tests', () => {
   const gatsby = {
     getNodes: jest.fn(() => GRAPHQL_NODES_WITH_MANIFEST_JSON),
     actions: {
@@ -36,16 +36,16 @@ describe('SourceNodes Integration Tests', () => {
   });
 
   it('throws if options are invalid', async () => {
-    expect(SourceNodes(gatsby, options)).rejects.toThrow(ERRORS.BAD_OPTIONS);
+    expect(sourceNodes(gatsby, options)).rejects.toThrow(ERRORS.BAD_OPTIONS);
   });
 
   it('calls getManifestFromFileSystem is files is a string', async () => {
-    await SourceNodes(gatsby, options);
+    await sourceNodes(gatsby, options);
     expect(getManifestInFileSystem).toHaveBeenCalledWith(gatsby.getNodes, MANIFEST_SOURCE_TYPE);
   });
 
   it('does not call getManifestFromFileSystem if files is an array', async () => {
-    await SourceNodes(gatsby, { ...options, files: MANIFEST });
+    await sourceNodes(gatsby, { ...options, files: MANIFEST });
     expect(getManifestInFileSystem).not.toHaveBeenCalled();
   });
 

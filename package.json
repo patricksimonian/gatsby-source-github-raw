@@ -1,6 +1,6 @@
 {
   "name": "gatsby-source-github-raw",
-  "version": "1.0.2-2",
+  "version": "1.0.2-3",
   "description": "Plugin that generates a set of nodes based on a registry/manifest file",
   "engine": "node 10.15.3",
   "contributors": [
@@ -9,9 +9,9 @@
       "email": "patrick.simonian@gov.bc.ca"
     }
   ],
-  "main": "dist/index.js",
+  "main": "index.js",
   "scripts": {
-    "build": "babel src --out-dir dist --ignore src/__tests__,src/__fixtures__",
+    "build": "babel src --out-dir . --ignore src/__tests__,src/__fixtures__",
     "test": "NODE_ENV=test jest __tests__ --env=node",
     "test:watch": "NODE_ENV=test jest __tests__ --watch --env=node",
     "test:lint": "eslint --env node --ext .js src",
