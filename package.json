@@ -1,6 +1,6 @@
 {
   "name": "gatsby-source-github-raw",
-  "version": "1.0.2",
+  "version": "1.2.0",
   "description": "Plugin that generates a set of nodes based on a registry/manifest file",
   "engine": "node 10.15.3",
   "contributors": [

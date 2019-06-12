@@ -21,6 +21,7 @@ import { validateAndFilterManifest } from './utils/manifest';
 import { extractInformationFromGithubUrl, createFetchFileRoute } from './utils/url';
 import { fetchFile } from './utils/api';
 import { createNodeObject } from './utils/createNode';
+import { isFunction } from '@babel/types';
 
 export const sourceNodes = async (
   { getNodes, actions, createNodeId },
@@ -35,6 +36,8 @@ export const sourceNodes = async (
   if (isString(files)) {
     const manifestSourceType = files;
     manifest = getManifestInFileSystem(getNodes, manifestSourceType);
+  } else if (isFunction(files)) {
+    manifest = files();
   } else {
     manifest = files.map(f => {
       if (isString(f)) return { url: f };
