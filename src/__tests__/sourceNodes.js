@@ -18,7 +18,9 @@ fetchFile.mockReturnValue(Promise.resolve(RAW_FILE));
 describe('SourceNodes Integration Tests', () => {
   const gatsby = {
     getNodes: jest.fn(() => GRAPHQL_NODES_WITH_MANIFEST_JSON),
-    actions: jest.fn(),
+    actions: {
+      createNode: jest.fn(),
+    },
     createNodeId: jest.fn(),
   };
   const options = {
