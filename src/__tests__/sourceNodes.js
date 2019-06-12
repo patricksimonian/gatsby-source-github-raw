@@ -6,8 +6,15 @@ import {
 } from '../__fixtures__/manifest-nodes';
 import { MANIFEST } from '../__fixtures__/manifest';
 import { getManifestInFileSystem } from '../utils';
+import { validateAndFilterManifest } from '../utils/manifest';
+import { fetchFile } from '../utils/api';
+import { RAW_FILE } from '../__fixtures__/githubFile';
 
 jest.mock('../utils/manifest');
+jest.mock('../utils/api');
+
+fetchFile.mockReturnValue(Promise.resolve(RAW_FILE));
+
 describe('SourceNodes Integration Tests', () => {
   const gatsby = {
     getNodes: jest.fn(() => GRAPHQL_NODES_WITH_MANIFEST_JSON),
@@ -18,6 +25,9 @@ describe('SourceNodes Integration Tests', () => {
     githubAccessToken: 'foo',
     files: MANIFEST_SOURCE_TYPE,
   };
+
+  getManifestInFileSystem.mockReturnValue(MANIFEST);
+  validateAndFilterManifest.mockReturnValue(MANIFEST);
 
   afterEach(() => {
     getManifestInFileSystem.mockClear();

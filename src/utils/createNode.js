@@ -15,14 +15,24 @@ limitations under the License.
 
 Created by Patrick Simonian
 */
-// reusable nomenclature that is embedded into thrown errors and console logs
-export const NOMENCLATURE = {
-  manifest: 'Manifest',
+import mimeTypes from 'mime-types';
+import { NODE_TYPE } from '../constants/strings';
+import { hashString } from '../utils/data';
+
+export const createNodeObject = (createNodeId, file, metadata) => {
+  const id = createNodeId(hashString(JSON.stringify(file)));
+
+  return {
+    ...file,
+    __metatdata: metadata,
+    internal: {
+      mediaType: mimeTypes.lookup(file.name),
+      contentDigest: hashString(JSON.stringify(file.content)),
+      type: NODE_TYPE,
+      content: file.content,
+    },
+    id,
+    children: [],
+    parent: null,
+  };
 };
-
-export const ERRORS = {
-  BAD_OPTIONS: 'Options are misconfiguired, you require the properties githubAccessToken and files',
-};
-
-export const NODE_TYPE = 'GithubRaw';
-

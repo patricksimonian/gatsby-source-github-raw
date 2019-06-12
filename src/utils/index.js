@@ -15,6 +15,8 @@ limitations under the License.
 
 Created by Patrick Simonian
 */
-export { getManifestInFileSystem, validateManifestItem } from './manifest';
+export { getManifestInFileSystem, validateManifestItem, seperateUrlFromMetadata } from './manifest';
 
 export { validateAgainstSchema, areOptionsOkay } from './validate';
+
+export { decodeFileContent } from './data';

@@ -26,10 +26,7 @@ import { validateAgainstSchema } from './validate';
 export const getManifestInFileSystem = (getNodes, manifestSourceType) => {
   const manifest = getNodes().filter(node => node.internal.type === manifestSourceType);
   if (manifest.length > 0) {
-    // filter out internal so that this manifest is exactly the same in structure as a json object
-    // being passed in as config
-    // eslint-disable-next-line no-unused-vars
-    return manifest.map(({ internal, id, parent, children, ...rest }) => rest);
+    return manifest;
   }
 
   throw new Error(`${NOMENCLATURE.manifest} not found`);
@@ -52,3 +49,10 @@ export const validateAndFilterManifest = manifest =>
     const validated = validateManifestItem(item);
     return validated.isValid;
   });
+
+// filter out internal and other gatsby specific properties
+// eslint-disable-next-line no-unused-vars
+export const seperateUrlFromMetadata = ({ url, internal, parent, child, id, ...rest }) => [
+  url,
+  rest,
+];

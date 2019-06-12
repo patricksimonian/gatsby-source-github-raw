@@ -6,7 +6,7 @@ import {
   GRAPHQL_NODES_WITHOUT_MANIFEST_JSON,
   MANIFEST_SOURCE_TYPE,
 } from '../__fixtures__/manifest-nodes';
-import { validateAndFilterManifest } from '../utils/manifest';
+import { validateAndFilterManifest, seperateUrlFromMetadata } from '../utils/manifest';
 import { MANIFEST } from '../__fixtures__/manifest';
 
 jest.mock('../utils/validate.js');
@@ -37,6 +37,20 @@ describe('Manifest Utilities', () => {
       expect(newManifest.length).toBeLessThan(MANIFEST.length);
 
       expect(newManifest).toMatchSnapshot();
+    });
+  });
+
+  describe('seperateUrlFromMetadata', () => {
+    it('seperates metadata', () => {
+      const manifestItem = {
+        url: 'foo',
+        internal: 'bar',
+        data1: true,
+      };
+
+      const expected = ['foo', { data1: true }];
+
+      expect(seperateUrlFromMetadata(manifestItem)).toEqual(expected);
     });
   });
 });

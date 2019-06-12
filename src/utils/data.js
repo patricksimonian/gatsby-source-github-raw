@@ -15,14 +15,25 @@ limitations under the License.
 
 Created by Patrick Simonian
 */
-// reusable nomenclature that is embedded into thrown errors and console logs
-export const NOMENCLATURE = {
-  manifest: 'Manifest',
-};
+import { Base64 } from 'js-base64';
+import crypto from 'crypto';
+/**
+ * decodes the b64 encoded content property of the github file
+ * @param {Object} file the github file from the contents api
+ * @returns {Object} the new file with content decoded
+ */
+export const decodeFileContent = file => ({
+  ...file,
+  content: Base64.decode(file.content),
+});
 
-export const ERRORS = {
-  BAD_OPTIONS: 'Options are misconfiguired, you require the properties githubAccessToken and files',
-};
-
-export const NODE_TYPE = 'GithubRaw';
-
+/**
+ * returns a md5 hash
+ * @param {String} content the string to be hashed
+ * @returns {String} the hash
+ */
+export const hashString = content =>
+  crypto
+    .createHash('md5')
+    .update(content)
+    .digest('hex');

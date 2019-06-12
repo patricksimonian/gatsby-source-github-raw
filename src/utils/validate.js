@@ -81,7 +81,7 @@ export const validateAgainstSchema = (obj, schema) => {
   return error;
 };
 
-export const isAGithubUrl = url => {
+export const isAGithubUrl = ({ url }) => {
   if (validUrl.isWebUri(url)) {
     const parsed = new Url.URL(url);
     return parsed.host === 'github.com';

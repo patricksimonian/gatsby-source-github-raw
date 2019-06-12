@@ -59,9 +59,9 @@ describe('validateAgainstSchema', () => {
 
 describe('Custom Validators', () => {
   it('detects if something is a valid github URL', () => {
-    expect(isAGithubUrl('https://github.com')).toBe(true);
-    expect(isAGithubUrl('https://example.com')).toBe(false);
-    expect(isAGithubUrl('df')).toBe(false);
+    expect(isAGithubUrl({ url: 'https://github.com' })).toBe(true);
+    expect(isAGithubUrl({ url: 'https://example.com' })).toBe(false);
+    expect(isAGithubUrl({ url: 'df' })).toBe(false);
   });
 });
 
