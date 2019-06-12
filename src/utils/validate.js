@@ -89,6 +89,7 @@ export const isAGithubUrl = ({ url }) => {
   return false;
 };
 
+const manifestIsValid = manifest => manifest.every(item => isPlainObject(item) || isString(item));
 /**
  * validates source plugin options
  * @param {String} token the github access token
@@ -97,4 +98,5 @@ export const isAGithubUrl = ({ url }) => {
 export const areOptionsOkay = (token, manifest) =>
   isString(token) &&
   (isString(manifest) ||
-    (isArray(manifest) && manifest.every(item => isPlainObject(item) || isString(item))));
+    (isArray(manifest) && manifestIsValid(manifest)) ||
+    (isFunction(manifest) && isArray(manifest()) && manifestIsValid(manifest())));

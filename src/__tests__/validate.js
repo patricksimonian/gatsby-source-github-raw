@@ -74,6 +74,8 @@ describe('areOptionsOkay', () => {
     const BAD_MANIFEST_CONFIG_2 = null;
     const GOOD_MANIFEST_REFERENCE = 'FooJson';
 
+    const GOOD_MANIFEST = () => [{}, {}];
+
     expect(areOptionsOkay(GOOD_TOKEN, GOOD_MANIFEST_CONFIG)).toBe(true);
     expect(areOptionsOkay(GOOD_TOKEN, GOOD_MANIFEST_REFERENCE)).toBe(true);
     expect(areOptionsOkay(BAD_TOKEN, GOOD_MANIFEST_REFERENCE)).toBe(false);
@@ -82,5 +84,6 @@ describe('areOptionsOkay', () => {
     expect(areOptionsOkay(GOOD_TOKEN, BAD_MANIFEST_CONFIG_2)).toBe(false);
     expect(areOptionsOkay(BAD_TOKEN, BAD_MANIFEST_CONFIG_1)).toBe(false);
     expect(areOptionsOkay(BAD_TOKEN, BAD_MANIFEST_CONFIG_2)).toBe(false);
+    expect(areOptionsOkay(GOOD_TOKEN, GOOD_MANIFEST)).toBe(true);
   });
 });
