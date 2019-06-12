@@ -95,4 +95,6 @@ export const isAGithubUrl = ({ url }) => {
  * @param {String | Array} manifest the manifest config or the node internal.type that points to all the manifest files
  */
 export const areOptionsOkay = (token, manifest) =>
-  isString(token) && (isString(manifest) || (isArray(manifest) && manifest.every(isPlainObject)));
+  isString(token) &&
+  (isString(manifest) ||
+    (isArray(manifest) && manifest.every(item => isPlainObject(item) || isString(item))));

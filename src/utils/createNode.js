@@ -24,9 +24,9 @@ export const createNodeObject = (createNodeId, file, metadata) => {
 
   return {
     ...file,
-    __metatdata: metadata,
+    ___boundProperties: metadata,
     internal: {
-      mediaType: mimeTypes.lookup(file.name),
+      mediaType: mimeTypes.lookup(file.name) || 'text/plain',
       contentDigest: hashString(JSON.stringify(file.content)),
       type: NODE_TYPE,
       content: file.content,
