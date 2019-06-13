@@ -49,7 +49,7 @@ export const sourceNodes = async (
   // grab seperate urls from the rest of the metadata
   const urlMap = filteredManifest.reduce((map, currentUrlObj) => {
     const { url, ...rest } = currentUrlObj;
-    map.set(url, rest || null);
+    map.set(url, rest);
     return map;
   }, new Map());
 

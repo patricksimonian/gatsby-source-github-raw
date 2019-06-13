@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`creating the node sets ___boundProperties 1`] = `
+Object {
+  "___boundProperties": Object {
+    "foo": "bar",
+  },
+  "_links": Object {
+    "git": "https://api.github.com/repos/bcgov/devhub-app-web/git/blobs/1a644c8f08eb7f21d7920e402efd4200e1241d03",
+    "html": "https://github.com/bcgov/devhub-app-web/blob/master/README.md",
+    "self": "https://api.github.com/repos/bcgov/devhub-app-web/contents/README.md?ref=master",
+  },
+  "children": Array [],
+  "content": "# foo 
+ ## second title 
+ ### third title",
+  "download_url": "https://raw.githubusercontent.com/bcgov/devhub-app-web/master/README.md",
+  "encoding": "base64",
+  "git_url": "https://api.github.com/repos/bcgov/devhub-app-web/git/blobs/1a644c8f08eb7f21d7920e402efd4200e1241d03",
+  "html_url": "https://github.com/bcgov/devhub-app-web/blob/master/README.md",
+  "id": "id",
+  "internal": Object {
+    "content": "# foo 
+ ## second title 
+ ### third title",
+    "contentDigest": "f03956936ab94e73b49191e29ae10cc3",
+    "mediaType": "text/markdown",
+    "type": "GithubRaw",
+  },
+  "name": "README.md",
+  "parent": null,
+  "path": "README.md",
+  "sha": "1a644c8f08eb7f21d7920e402efd4200e1241d03",
+  "size": 18750,
+  "type": "file",
+  "url": "https://api.github.com/repos/bcgov/devhub-app-web/contents/README.md?ref=master",
+}
+`;
