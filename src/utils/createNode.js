@@ -19,7 +19,7 @@ import mimeTypes from 'mime-types';
 import { NODE_TYPE } from '../constants/strings';
 import { hashString } from '../utils/data';
 
-export const createNodeObject = (createNodeId, file, metadata) => {
+export const createNodeObject = (createNodeId, file, metadata = {}) => {
   const id = createNodeId(hashString(JSON.stringify(file)));
 
   return {

@@ -41,14 +41,14 @@ There are a few ways to pass in files
 [
   {
     url: 'https://github.com/foo/bar/blob/master/something.md'
-    labels: [ // labels will become a bound property that is available at node._xboundProperties.labels
+    labels: [ // labels will become a bound property that is available at node._xxboundProperties.labels
       'cool',
       'featured',
     ]
   },
   {
     url: 'https://github.com/foo/bar/blob/master/something2.md',
-    labels: [ // labels will become a bound property that is available at node._xboundProperties.labels
+    labels: [ // labels will become a bound property that is available at node._xxboundProperties.labels
       'featured',
     ]
   }
@@ -109,3 +109,7 @@ properties are not usable within `json` files that are leveraged as a source for
 - children
 
 This is because these properties are default properties applied to any graphql node within gatsby. 
+
+## Accessing Bound Properties
+
+Bound Properties are accessed at `node._xxboundProperties`

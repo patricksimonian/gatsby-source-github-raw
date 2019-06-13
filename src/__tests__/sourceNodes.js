@@ -50,6 +50,4 @@ describe('sourceNodes Integration Tests', () => {
   });
 
   // it implicitly sets mime types for different files
-
-  // it binds metadata as the __metadata property
 });
