@@ -37,7 +37,7 @@ export const sourceNodes = async (
     const manifestSourceType = files;
     manifest = getManifestInFileSystem(getNodes, manifestSourceType);
   } else if (isFunction(files)) {
-    manifest = files();
+    manifest = files(getNodes);
   } else {
     manifest = files.map(f => {
       if (isString(f)) return { url: f };
