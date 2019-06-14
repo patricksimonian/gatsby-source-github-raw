@@ -111,6 +111,7 @@ const fileCallback = getNodes => {
   }
 }
 ```
+
 ## Exceptions to applying bound properties
 
 Because manifests can be passed in as plain js objects as well as loaded through the use of 
