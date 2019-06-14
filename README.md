@@ -87,7 +87,21 @@ The implied `nodeType` that is created from the directory can be passed in as th
   }
 }
 ```
+
 4. Files as a function
+```js
+/**
+ * fileCallback
+ * @param {Function} getNodes gatsby getNodes function in case you need it
+ * @returns {Array<String> | Array<Object>} a list of files in strings or objects
+ **/
+const fileCallback = getNodes => {
+  // get nodes allows you to produce a set of urls based on your own conditions, for example if you
+  // had multiple json files that held url information that you wanted to normalize and use
+  return ['...list of files']
+}
+```
+
 ```js
 {
   resolve: 'gatsby-source-github-raw',
