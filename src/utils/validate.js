@@ -95,8 +95,8 @@ const manifestIsValid = manifest => manifest.every(item => isPlainObject(item) |
  * @param {String} token the github access token
  * @param {String | Array} manifest the manifest config or the node internal.type that points to all the manifest files
  */
-export const areOptionsOkay = (token, manifest) =>
+export const areOptionsOkay = (token, manifest, getNodes) =>
   isString(token) &&
   (isString(manifest) ||
     (isArray(manifest) && manifestIsValid(manifest)) ||
-    (isFunction(manifest) && isArray(manifest()) && manifestIsValid(manifest())));
+    (isFunction(manifest) && isArray(manifest(getNodes)) && manifestIsValid(manifest(getNodes))));
