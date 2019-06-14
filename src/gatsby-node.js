@@ -15,20 +15,20 @@
 // Created by Patrick Simonian on 2019-06-04.
 //
 import isString from 'lodash/isString';
+import isFunction from 'lodash/isFunction';
 import { areOptionsOkay, getManifestInFileSystem, decodeFileContent } from './utils';
 import { ERRORS } from './constants';
-import { validateAndFilterManifest } from './utils/manifest';
 import { extractInformationFromGithubUrl, createFetchFileRoute } from './utils/url';
+import { validateAndFilterManifest } from './utils/manifest';
 import { fetchFile } from './utils/api';
 import { createNodeObject } from './utils/createNode';
-import { isFunction } from '@babel/types';
 
 export const sourceNodes = async (
   { getNodes, actions, createNodeId },
   { githubAccessToken, files },
 ) => {
   const { createNode } = actions;
-  if (!areOptionsOkay(githubAccessToken, files)) {
+  if (!areOptionsOkay(githubAccessToken, files, getNodes)) {
     throw new Error(ERRORS.BAD_OPTIONS);
   }
 
