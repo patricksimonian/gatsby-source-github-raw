@@ -1,4 +1,6 @@
 # Gatsby Source Github Raw
+[![Build Status](https://travis-ci.com/patricksimonian/gatsby-source-github-raw.png?branch=master)](https://travis-ci.com/patricksimonian/gatsby-source-github-raw)
+
 
 A simplified way of leveraging the `Github Contents Api` as Gatsby graphql nodes. 
 
