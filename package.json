@@ -1,6 +1,6 @@
 {
   "name": "gatsby-source-github-raw",
-  "version": "1.2.3",
+  "version": "1.2.4-0",
   "description": "Plugin that generates a set of nodes based on a registry/manifest file",
   "engine": "node 10.15.3",
   "contributors": [
@@ -9,7 +9,13 @@
       "email": "patrick.simonian@gov.bc.ca"
     }
   ],
-  "keywords": ["gatsby", "gatsby-plugin", "gatsby source github", "gatsby-source-github", "gatsby github api"],
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "gatsby source github",
+    "gatsby-source-github",
+    "gatsby github api"
+  ],
   "main": "index.js",
   "scripts": {
     "build": "babel src --out-dir . --ignore src/__tests__,src/__fixtures__",
