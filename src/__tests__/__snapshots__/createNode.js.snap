@@ -7,7 +7,7 @@ Object {
   },
   "_links": Object {
     "git": "https://api.github.com/repos/bcgov/devhub-app-web/git/blobs/1a644c8f08eb7f21d7920e402efd4200e1241d03",
-    "html": "https://github.com/bcgov/devhub-app-web/blob/master/README.md",
+    "html": "https://github.com/foo/bar/blob/master/foo.md",
     "self": "https://api.github.com/repos/bcgov/devhub-app-web/contents/README.md?ref=master",
   },
   "children": Array [],
@@ -17,7 +17,7 @@ Object {
   "download_url": "https://raw.githubusercontent.com/bcgov/devhub-app-web/master/README.md",
   "encoding": "base64",
   "git_url": "https://api.github.com/repos/bcgov/devhub-app-web/git/blobs/1a644c8f08eb7f21d7920e402efd4200e1241d03",
-  "html_url": "https://github.com/bcgov/devhub-app-web/blob/master/README.md",
+  "html_url": "https://github.com/foo/bar/blob/master/foo.md",
   "id": "id",
   "internal": Object {
     "content": "# foo 

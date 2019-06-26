@@ -16,7 +16,12 @@
 //
 import isString from 'lodash/isString';
 import isFunction from 'lodash/isFunction';
-import { areOptionsOkay, getManifestInFileSystem, decodeFileContent } from './utils';
+import {
+  areOptionsOkay,
+  getManifestInFileSystem,
+  decodeFileContent,
+  manifestIsValid,
+} from './utils';
 import { ERRORS } from './constants';
 import { extractInformationFromGithubUrl, createFetchFileRoute } from './utils/url';
 import { validateAndFilterManifest } from './utils/manifest';
@@ -44,18 +49,26 @@ export const sourceNodes = async (
       return f;
     });
   }
+
+  if (!manifestIsValid(manifest)) {
+    throw new Error(ERRORS.BAD_MANIFEST);
+  }
+
   // validate files and filter
   const filteredManifest = validateAndFilterManifest(manifest);
+
   // grab seperate urls from the rest of the metadata
   const urlMap = filteredManifest.reduce((map, currentUrlObj) => {
     const { url, ...rest } = currentUrlObj;
-    map.set(url, rest);
+    // setting to lower to prevent and case mispellings that could happen from
+    // a malformed registry, github api is case senstive when looking up files
+    map.set(url.toLowerCase(), { url, metadata: rest });
     return map;
   }, new Map());
 
   // convert into a github object
-  const fetchFileList = Array.from(urlMap.keys())
-    .map(url => extractInformationFromGithubUrl(url))
+  const fetchFileList = Array.from(urlMap.entries())
+    .map(entry => extractInformationFromGithubUrl(entry[1].url))
     .map(({ repo, owner, filepath, ref }) => createFetchFileRoute(repo, owner, filepath, ref));
 
   const rawFiles = await Promise.all(fetchFileList.map(path => fetchFile(path, githubAccessToken)));
@@ -64,9 +77,8 @@ export const sourceNodes = async (
 
   return decodedFiles.map(file => {
     const { html_url } = file;
-
     // get meta data from urlMap based on this url
-    const metadata = urlMap.get(html_url);
+    const metadata = urlMap.get(html_url.toLowerCase()).metadata;
     return createNode(createNodeObject(createNodeId, file, metadata));
   });
 };
