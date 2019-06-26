@@ -53,12 +53,16 @@ export const sourceNodes = async (
   if (!manifestIsValid(manifest)) {
     throw new Error(ERRORS.BAD_MANIFEST);
   }
+
   // validate files and filter
   const filteredManifest = validateAndFilterManifest(manifest);
+
   // grab seperate urls from the rest of the metadata
   const urlMap = filteredManifest.reduce((map, currentUrlObj) => {
     const { url, ...rest } = currentUrlObj;
-    map.set(url, rest);
+    // setting to lower to prevent and case mispellings that could happen from
+    // a malformed registry, github api is case senstive when looking up files
+    map.set(url.toLowerCase(), rest);
     return map;
   }, new Map());
 
@@ -75,7 +79,7 @@ export const sourceNodes = async (
     const { html_url } = file;
 
     // get meta data from urlMap based on this url
-    const metadata = urlMap.get(html_url);
+    const metadata = urlMap.get(html_url.toLowerCase());
     return createNode(createNodeObject(createNodeId, file, metadata));
   });
 };

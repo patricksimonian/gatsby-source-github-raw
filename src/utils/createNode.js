@@ -21,7 +21,6 @@ import { hashString } from '../utils/data';
 
 export const createNodeObject = (createNodeId, file, metadata = {}) => {
   const id = createNodeId(hashString(JSON.stringify(file)));
-
   return {
     ...file,
     ___boundProperties: metadata,
