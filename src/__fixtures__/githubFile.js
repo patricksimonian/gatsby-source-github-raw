@@ -4,7 +4,7 @@ export const RAW_FILE = {
   sha: '1a644c8f08eb7f21d7920e402efd4200e1241d03',
   size: 18750,
   url: 'https://api.github.com/repos/bcgov/devhub-app-web/contents/README.md?ref=master',
-  html_url: 'https://github.com/bcgov/devhub-app-web/blob/master/README.md',
+  html_url: 'https://github.com/foo/bar/blob/master/foo.md',
   git_url:
     'https://api.github.com/repos/bcgov/devhub-app-web/git/blobs/1a644c8f08eb7f21d7920e402efd4200e1241d03',
   download_url: 'https://raw.githubusercontent.com/bcgov/devhub-app-web/master/README.md',
@@ -16,7 +16,7 @@ export const RAW_FILE = {
     self: 'https://api.github.com/repos/bcgov/devhub-app-web/contents/README.md?ref=master',
     git:
       'https://api.github.com/repos/bcgov/devhub-app-web/git/blobs/1a644c8f08eb7f21d7920e402efd4200e1241d03',
-    html: 'https://github.com/bcgov/devhub-app-web/blob/master/README.md',
+    html: 'https://github.com/foo/bar/blob/master/foo.md',
   },
 };
 
@@ -26,7 +26,7 @@ export const DECODED_FILE = {
   sha: '1a644c8f08eb7f21d7920e402efd4200e1241d03',
   size: 18750,
   url: 'https://api.github.com/repos/bcgov/devhub-app-web/contents/README.md?ref=master',
-  html_url: 'https://github.com/bcgov/devhub-app-web/blob/master/README.md',
+  html_url: 'https://github.com/foo/bar/blob/master/foo.md',
   git_url:
     'https://api.github.com/repos/bcgov/devhub-app-web/git/blobs/1a644c8f08eb7f21d7920e402efd4200e1241d03',
   download_url: 'https://raw.githubusercontent.com/bcgov/devhub-app-web/master/README.md',
@@ -37,6 +37,6 @@ export const DECODED_FILE = {
     self: 'https://api.github.com/repos/bcgov/devhub-app-web/contents/README.md?ref=master',
     git:
       'https://api.github.com/repos/bcgov/devhub-app-web/git/blobs/1a644c8f08eb7f21d7920e402efd4200e1241d03',
-    html: 'https://github.com/bcgov/devhub-app-web/blob/master/README.md',
+    html: 'https://github.com/foo/bar/blob/master/foo.md',
   },
 };

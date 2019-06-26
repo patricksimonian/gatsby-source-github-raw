@@ -17,6 +17,6 @@ Created by Patrick Simonian
 */
 export { getManifestInFileSystem, validateManifestItem, seperateUrlFromMetadata } from './manifest';
 
-export { validateAgainstSchema, areOptionsOkay } from './validate';
+export { validateAgainstSchema, areOptionsOkay, manifestIsValid } from './validate';
 
 export { decodeFileContent } from './data';
