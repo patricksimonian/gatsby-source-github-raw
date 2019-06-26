@@ -22,6 +22,7 @@ export const NOMENCLATURE = {
 
 export const ERRORS = {
   BAD_OPTIONS: 'Options are misconfiguired, you require the properties githubAccessToken and files',
+  BAD_MANIFEST: 'The Manifest Schema is incorrect, it should be in the shape [{url: <string>}]',
 };
 
 export const NODE_TYPE = 'GithubRaw';

@@ -16,7 +16,12 @@
 //
 import isString from 'lodash/isString';
 import isFunction from 'lodash/isFunction';
-import { areOptionsOkay, getManifestInFileSystem, decodeFileContent } from './utils';
+import {
+  areOptionsOkay,
+  getManifestInFileSystem,
+  decodeFileContent,
+  manifestIsValid,
+} from './utils';
 import { ERRORS } from './constants';
 import { extractInformationFromGithubUrl, createFetchFileRoute } from './utils/url';
 import { validateAndFilterManifest } from './utils/manifest';
@@ -43,6 +48,10 @@ export const sourceNodes = async (
       if (isString(f)) return { url: f };
       return f;
     });
+  }
+
+  if (!manifestIsValid(manifest)) {
+    throw new Error(ERRORS.BAD_MANIFEST);
   }
   // validate files and filter
   const filteredManifest = validateAndFilterManifest(manifest);
