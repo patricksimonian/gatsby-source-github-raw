@@ -111,5 +111,5 @@ pipeline/build/
 
 /*.js 
 !index.js
-constants
-utils
+/constants
+/utils
