@@ -1,3 +1,4 @@
+> This project is moving to `@bcgov/gatsby-source-github-raw` [repo](https://github.com/bcgov/gatsby-source-github-raw);
 # Gatsby Source Github Raw
 [![Build Status](https://travis-ci.com/patricksimonian/gatsby-source-github-raw.png?branch=master)](https://travis-ci.com/patricksimonian/gatsby-source-github-raw)
 

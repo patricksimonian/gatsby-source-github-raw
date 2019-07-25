@@ -16,7 +16,7 @@
 //
 import isString from 'lodash/isString';
 import isFunction from 'lodash/isFunction';
-import './postInstall';
+import './postInstall.js';
 import {
   areOptionsOkay,
   getManifestInFileSystem,
