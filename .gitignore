@@ -108,7 +108,8 @@ pipeline/build/
 # docker compose artifacts
 .config/
 
-/*.js 
+/*.js
+!postInstall.js
 !index.js
 /constants
 /utils
