@@ -87,7 +87,6 @@ public/
 
 # Logs and databases #
 ######################
-*.log
 *.sql
 *.sqlite
 
@@ -111,5 +110,5 @@ pipeline/build/
 
 /*.js 
 !index.js
-constants
-utils
+/constants
+/utils
