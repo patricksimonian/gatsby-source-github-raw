@@ -19,8 +19,8 @@
   "main": "index.js",
   "scripts": {
     "build": "babel src --out-dir . --ignore src/__tests__,src/__fixtures__",
-    "test": "NODE_ENV=test jest __tests__ --env=node",
-    "test:watch": "NODE_ENV=test jest __tests__ --watch --env=node",
+    "test": "cross-env NODE_ENV=test jest __tests__ --env=node",
+    "test:watch": "cross-env NODE_ENV=test jest __tests__ --watch --env=node",
     "test:lint": "eslint --env node --ext .js src",
     "prettier": "prettier --write '{./,__{tests,mocks}__}/**/*.+(js|jsx)'",
     "prepare": "npm run test && npm run test:lint -- --fix && npm run build",
@@ -53,6 +53,7 @@
     "@babel/preset-env": "^7.4.5",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.8.0",
+    "cross-env": "^5.2.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-defaults": "^9.0.0",
