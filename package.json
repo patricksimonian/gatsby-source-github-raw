@@ -1,7 +1,7 @@
 {
   "name": "gatsby-source-github-raw",
   "version": "1.2.5",
-  "description": "Plugin that generates a set of nodes based on a registry/manifest file",
+  "description": "Fetch contents from Github Repositories and convert them into transformable graphql nodes",
   "engine": "node 10.15.3",
   "contributors": [
     {
