@@ -1,6 +1,6 @@
 {
   "name": "gatsby-source-github-raw",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "Fetch contents from Github Repositories and convert them into transformable graphql nodes",
   "engine": "node 10.15.3",
   "contributors": [
