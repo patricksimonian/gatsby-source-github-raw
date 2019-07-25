@@ -24,6 +24,7 @@
     "test:lint": "eslint --env node --ext .js src",
     "prettier": "prettier --write '{./,__{tests,mocks}__}/**/*.+(js|jsx)'",
     "prepare": "npm run test && npm run test:lint -- --fix && npm run build",
+    "postinstall": "node postInstall.js",
     "version:major": "npm version major --tag stable",
     "version:minor": "npm version minor --tag stable",
     "version:patch": "npm version patch",
@@ -36,6 +37,7 @@
     "gatsby": "^2.6.0"
   },
   "dependencies": {
+    "chalk": "^2.4.2",
     "crypto": "^1.0.1",
     "git-url-parse": "^11.1.2",
     "graphql-fetch": "^1.0.1",
